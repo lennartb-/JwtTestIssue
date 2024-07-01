@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,6 +17,15 @@ namespace Contoso.Tests
             var token = jwtTokenHandler.CreateToken(descriptor);
 
             jwtTokenHandler.WriteToken(token);
+        }
+
+        [TestMethod]
+        public void JsonWebTokenTest()
+        {
+            var jsonWebTokenHandler = new JsonWebTokenHandler();
+            var descriptor = new SecurityTokenDescriptor();
+
+            var token = jsonWebTokenHandler.CreateToken(descriptor);
         }
     }
 }
